@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 miner_ver() {
-    echo "1.0.5"
+    echo "1.0.6"
 }
 
 miner_config_echo() {
@@ -36,3 +36,11 @@ miner_config_gen() {
         printf 'EXTRA_ARGS=%q\n' "$extra"
     } > "$config"
 }
+
+# The legacy HiveOS custom launcher only sources h-config.sh; unlike the newer
+# generic launcher, it does not invoke miner_config_gen afterwards. Generate
+# the file while sourcing when a complete Flight Sheet is available. Calling
+# the function a second time on newer HiveOS releases is safe and idempotent.
+if [[ -n "${CUSTOM_URL:-}" && -n "${CUSTOM_TEMPLATE:-${CUSTOM_WALLET:-}}" ]]; then
+    miner_config_gen
+fi
