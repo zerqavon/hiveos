@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 miner_ver() {
-    echo "1.0.2"
+    echo "1.0.3"
 }
 
 miner_config_echo() {

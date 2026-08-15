@@ -22,5 +22,5 @@ temperature="$(cpu-temp 2>/dev/null | head -n 1 | tr -dc '0-9.' || true)"
 
 khs="$(awk -v hs="$hashrate" 'BEGIN { printf "%.6f", hs / 1000 }')"
 stats="$(printf \
-    '{"hs":[%s],"hs_units":"hs","temp":[%s],"fan":[null],"uptime":%s,"ar":[%s,%s],"algo":"zqvxpow","ver":"1.0.2"}' \
+    '{"hs":[%s],"hs_units":"hs","temp":[%s],"fan":[null],"uptime":%s,"ar":[%s,%s],"algo":"zqvxpow","ver":"1.0.3"}' \
     "$hashrate" "$temperature" "$uptime" "$accepted" "$rejected")"
