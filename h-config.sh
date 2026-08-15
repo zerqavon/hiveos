@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 miner_ver() {
-    echo "1.0.4"
+    echo "1.0.5"
 }
 
 miner_config_echo() {
@@ -15,7 +15,8 @@ miner_config_echo() {
 
 miner_config_gen() {
     local config="${CUSTOM_CONFIG_FILENAME:-/hive/miners/custom/zerqavon-miner/zerqavon.conf}"
-    local pool="${CUSTOM_URL%% *}"
+    local pool="${CUSTOM_URL%%$'\n'*}"
+    pool="${pool%% *}"
     local wallet="${CUSTOM_TEMPLATE:-${CUSTOM_WALLET:-}}"
     local password="${CUSTOM_PASS:-x}"
     local extra="${CUSTOM_USER_CONFIG//$'\n'/ }"

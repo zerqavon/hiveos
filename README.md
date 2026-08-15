@@ -1,13 +1,15 @@
-# Zerqavon Miner 1.0.4 for HiveOS
+# Zerqavon HiveOS wrapper 1.0.5 (Miner 1.0.4)
 
 This package is a HiveOS custom miner for CPU mining with ZQVXPOW v1 and RandomX. The included x86-64 miner is statically linked to avoid dependencies on the Linux distribution's glibc or libstdc++ versions.
+
+Version 1.0.5 fixes the wrapper scripts being packaged with Windows CRLF line endings, which caused HiveOS to report `bash\r` errors or fail before launching the miner. Shell scripts are now permanently enforced as LF.
 
 ## Flight Sheet
 
 Choose **Add Miner > Custom** and enter:
 
 - Miner name: `zerqavon-miner`
-- Installation URL: `https://github.com/zerqavon/hiveos/releases/download/v1.0.4/zerqavon-miner-1.0.4.tar.gz`
+- Installation URL: `https://github.com/zerqavon/hiveos/releases/download/v1.0.5/zerqavon-miner-1.0.5.tar.gz`
 - Hash algorithm: `zqvxpow`
 - Wallet and worker template: your pool wallet or username, optionally with its supported worker suffix
 - Pool URL: `POOL_HOST:PORT`
